@@ -45,7 +45,7 @@ function App() {
 
       <Section headingText={'¿Dónde y Cuándo?'} id={'date-venue'} >
         <div className='grid md:grid-cols-2 gap-6'>
-          <div className='h-full min-h-100 rounded-[1.5rem] bg-[url(img/venue.jpg)] bg-cover bg-center' />
+          <div className='h-full min-h-100 rounded-[1.5rem] bg-[url(/img/venue.jpg)] bg-cover bg-center' />
           <div className='grid gap-6'>
             <div className='transparent-panel'>
               <div className='flex items-center mb-4'>

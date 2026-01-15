@@ -2,7 +2,7 @@ import CountdownTimer from "./CountdownTimer";
 
 export default function MainHeader() {
   return (
-    <header className='h-screen bg-[url(img/cover.jpg)] bg-cover bg-top'>
+    <header className='h-screen bg-[url(/img/cover.jpg)] bg-cover bg-top'>
         <div className='w-full h-full bg-linear-to-b from-black/0 to-black/50'>
             <div className='h-full responsive-container flex justify-center items-center'>
                 <div className='w-[30rem]'>

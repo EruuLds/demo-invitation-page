@@ -21,7 +21,7 @@
 }
 
 body {
-    background-image: url('img/repeating-bg@0.5x-80.jpg');
+    background-image: url('/img/repeating-bg@0.5x-80.jpg');
     background-size: 30rem;
     background-attachment: fixed;
     font-family: "Montserrat", sans-serif;
