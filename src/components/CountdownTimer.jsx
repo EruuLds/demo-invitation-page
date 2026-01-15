@@ -8,19 +8,19 @@ export default function CountdownTimer() {
   return (
     <div className="grid grid-cols-4 gap-4 p-4 bg-white font-semibold rounded-2xl">
       <div className="text-center">
-        <p className="text-2xl mb-1">{days}</p>
+        <h3 className="text-2xl mb-1">{days}</h3>
         <p className="uppercase text-xs font-bold">D</p>
       </div>
       <div className="text-center">
-        <p className="text-2xl mb-1">{hours}</p>
+        <h3 className="text-2xl mb-1">{hours}</h3>
         <p className="uppercase text-xs font-bold">Hrs</p>
       </div>
       <div className="text-center">
-        <p className="text-2xl mb-1">{minutes}</p>
+        <h3 className="text-2xl mb-1">{minutes}</h3>
         <p className="uppercase text-xs font-bold">Min</p>
       </div>
       <div className="text-2xl text-center">
-        <p className="mb-1">{seconds}</p>
+        <h3 className="mb-1">{seconds}</h3>
         <p className="uppercase text-xs font-bold">Seg</p>
       </div>
     </div>
