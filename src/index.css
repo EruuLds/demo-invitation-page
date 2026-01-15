@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "DM-Display";
+  src: url(fonts/DMSerifDisplay-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url(fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+@theme {
+  --color-primary: rgba(146, 86, 146, 0.8);
+  --color-dark: rgb(96, 96, 96);
+}
+
+:root {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+    background-image: url('img/repeating-bg@0.5x-80.jpg');
+    background-size: 30rem;
+    background-attachment: fixed;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--color-dark)
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM-Display',Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 { font-size: 5rem; line-height: 5rem; }
+h2 { font-size: 3rem; line-height: 3rem; }
+h3 { font-size: 2.25rem; line-height: 2.25rem; }
+h4 { font-size: 1.5rem; line-height: 1.5rem; }
+h5 { font-size: 1rem; line-height: 1rem; }
+h6 { font-size: 0.75rem; line-height: 0.75rem; }
+
+.responsive-container {
+  @apply px-[1rem] sm:px-[1.5rem] md:px-[1.5rem] lg:px-[3rem] sm:max-w-[1280px] w-full mx-auto;
+}
+
+.traslucid-panel-light {
+  @apply bg-white/0 backdrop-blur-lg backdrop-brightness-160 shadow-lg;
+}
+
+.traslucid-panel {
+  @apply bg-white/0 backdrop-blur-lg backdrop-brightness-115 shadow-lg;
+}
+
+.transparent-panel {
+  @apply bg-white/40 p-4 rounded-[1.5rem];
+}
+
+.mark-primary {
+    background-color: var(--color-primary);
+    @apply text-white px-2 py-1 inline-block rounded-[0.5rem];
+}
+
+.link-primary{
+  color: var(--color-primary);
+  @apply underline font-semibold;
+}
+
+.button-primary {
+  background-color: var(--color-primary);
+  @apply text-white;
+}
+
+.button-secondary {
+  @apply bg-white;
+}
+
+.vertical-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.2rem;
+  background-color: var(--color-dark)
+}
