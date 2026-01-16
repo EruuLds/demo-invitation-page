@@ -1,5 +1,5 @@
-import { useDataContext } from "../hooks/useDataContext";
-import { useCountdown } from "../hooks/useCountdown";
+import { useDataContext } from "../../../hooks/useDataContext";
+import { useCountdown } from "../../../hooks/useCountdown";
 
 export default function CountdownTimer() {
   const { eventDate } = useDataContext();

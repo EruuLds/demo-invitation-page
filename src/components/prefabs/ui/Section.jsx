@@ -1,4 +1,4 @@
-import OrnamentalFrame from "./OrnamentalFrame";
+import OrnamentalFrame from "../ornamental/OrnamentalFrame"
 
 export default function Section({headingText, children, id}) {
   return (

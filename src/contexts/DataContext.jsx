@@ -6,7 +6,6 @@ export const DataContext = createContext();
 
 export function DataContextProvider({ children }) {
   const eventDate = new Date('October 18, 2026 15:30:00').getTime();
-
   const urlParams = new URLSearchParams(window.location.search);
   const invitationId = urlParams.get('id');
 
@@ -54,8 +53,9 @@ export function DataContextProvider({ children }) {
   return (
     <DataContext.Provider value={{
       eventDate,
-      guestData
-
+      guestData,
+      updateGuest,
+      invitationId
     }}>
       {children}
     </DataContext.Provider>

@@ -42,6 +42,22 @@ h4 { font-size: 1.5rem; line-height: 1.5rem; }
 h5 { font-size: 1rem; line-height: 1rem; }
 h6 { font-size: 0.75rem; line-height: 0.75rem; }
 
+input[type='number'] {
+  @apply bg-white rounded-[0.5rem] px-3 py-2 text-center w-20 focus:outline-[var(--color-primary)];
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='radio'] {
+  accent-color: var(--color-primary);
+  @apply size-5 border-none outline-none;
+}
+
+
 .responsive-container {
   @apply px-[1rem] sm:px-[1.5rem] md:px-[1.5rem] lg:px-[3rem] sm:max-w-[1280px] w-full mx-auto;
 }
