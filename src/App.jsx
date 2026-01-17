@@ -29,6 +29,7 @@ function App() {
         </Section>
 
         <Section headingText={'Confirmar Asistencia'} id={'attendance'} >
+          <p className='text-center mb-6'>Tu presencia es muy significativa para nosotros. Si puedes acompañarnos, por favor, <span className='font-semibold'>confirma tu asistencia antes del 30 de septiembre</span>.</p>
           <AttendanceForm />
         </Section>
       </main>

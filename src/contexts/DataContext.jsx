@@ -53,9 +53,12 @@ export function DataContextProvider({ children }) {
   return (
     <DataContext.Provider value={{
       eventDate,
+      invitationId,
       guestData,
-      updateGuest,
-      invitationId
+      initialLoading,
+      loading,
+      error,
+      updateGuest
     }}>
       {children}
     </DataContext.Provider>
