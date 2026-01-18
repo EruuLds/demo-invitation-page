@@ -20,8 +20,8 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:boda-ale-luis@tusitioweb.com
 DTSTAMP:20250728T064616Z
-DTSTART;TZID=America/Mexico_City:20251018T153000
-DTEND;TZID=America/Mexico_City:20251018T235900
+DTSTART;TZID=America/Mexico_City:20261017T153000
+DTEND;TZID=America/Mexico_City:20261017T235900
 SUMMARY:Boda de Ale y Luis
 DESCRIPTION:¡Nos encantará contar con tu presencia en este día tan especial!
 LOCATION:Mansión del Conde - Castillo Santa Rosa (https://maps.app.goo.gl/QZXzxTRMZSdYyxcXA)

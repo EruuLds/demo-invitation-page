@@ -79,9 +79,22 @@ input[type='radio'] {
     @apply text-white px-2 py-1 inline-block rounded-[0.5rem];
 }
 
+.mark-disabled {
+  background-color: var(--color-primary);
+  @apply text-white text-white px-2 py-1 inline-block rounded-[0.5rem];
+}
+
+.mark-success {
+  @apply bg-emerald-300 text-white text-white px-2 py-1 inline-block rounded-[0.5rem];
+}
+
 .link-primary{
   color: var(--color-primary);
-  @apply underline font-semibold;
+  @apply underline font-semibold cursor-pointer;
+}
+
+.text-primary {
+  color: var(--color-primary);
 }
 
 .button-primary {
@@ -91,6 +104,11 @@ input[type='radio'] {
 
 .button-secondary {
   @apply bg-white;
+}
+
+.button-disabled {
+  background-color: hsla(300, 0%, 45%, 0.8);
+  @apply text-white;
 }
 
 .vertical-line {

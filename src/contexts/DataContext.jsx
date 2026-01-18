@@ -1,11 +1,12 @@
 import { createContext , useEffect, useState} from "react";
-import { ref, onValue, push, update, remove } from "firebase/database";
+import { ref, onValue, update} from "firebase/database";
 import database from '../firebase/firebaseConfig';
 
 export const DataContext = createContext();
 
 export function DataContextProvider({ children }) {
-  const eventDate = new Date('October 18, 2026 15:30:00').getTime();
+  const eventDate = new Date('October 17, 2026 15:30:00').getTime();
+  const confirmationDeadline = new Date('September 30, 2026 15:30:00').getTime();
   const urlParams = new URLSearchParams(window.location.search);
   const invitationId = urlParams.get('id');
 
@@ -53,6 +54,7 @@ export function DataContextProvider({ children }) {
   return (
     <DataContext.Provider value={{
       eventDate,
+      confirmationDeadline,
       invitationId,
       guestData,
       initialLoading,
