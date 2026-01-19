@@ -9,9 +9,9 @@ export default function Button({ children, color, small, targetForm, onClick, di
 
   return (
     <button
-      className={`rounded-[0.5rem] cursor-pointer font-medium hover:scale-101 hover:backdrop-brightness-70 hover:shadow-md 
+      className={`rounded-[0.5rem] cursor-pointer font-medium hover:scale-101 hover:backdrop-brightness-75 hover:shadow-md 
         ${color && (disabled ? 'button-disabled' : colorMap[color])}
-        ${small ? 'text-sm px-2 py-1 aspect-square' : 'px-3 py-2'}`
+        ${small ? 'text-xs px-2 py-1 aspect-square rounded-full' : 'px-3 py-2'}`
       }
       type={targetForm ? 'submit' : 'button'}
       form={targetForm ? targetForm : null}

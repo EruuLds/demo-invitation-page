@@ -5,6 +5,7 @@ import database from '../firebase/firebaseConfig';
 export const DataContext = createContext();
 
 export function DataContextProvider({ children }) {
+  const eventId = 'demo2026';
   const eventDate = new Date('October 17, 2026 15:30:00').getTime();
   const confirmationDeadline = new Date('September 30, 2026 15:30:00').getTime();
   const urlParams = new URLSearchParams(window.location.search);
@@ -16,7 +17,7 @@ export function DataContextProvider({ children }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const guestRef = ref(database, `events/demo2026/guests/${invitationId}`);
+    const guestRef = ref(database, `events/${eventId}/guests/${invitationId}`);
     const unsubscribe = onValue(
       guestRef,
       snapshot => {
@@ -37,11 +38,10 @@ export function DataContextProvider({ children }) {
     return () => unsubscribe();
   }, []);
 
-  const updateGuest = async (id, updatedData, onSuccess, onError, onComplete) => {
+  const updateGuest = async (id, updatedData, onError, onComplete) => {
     setLoading(true);
     try {
-      await update(ref(database, `events/demo2026/guests/${id}`), updatedData);
-      onSuccess?.();
+      await update(ref(database, `events/${eventId}/guests/${id}`), updatedData);
     } catch (err) {
       setError(err.message);
       onError?.();

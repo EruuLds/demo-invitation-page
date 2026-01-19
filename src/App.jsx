@@ -5,17 +5,21 @@ import Section from './components/prefabs/ui/Section'
 import Invitation from './components/section-contents/Invitation'
 import Itinerary from './components/section-contents/Itinerary'
 import VenueInfo from './components/section-contents/VenueInfo'
-import AttendanceForm from './components/section-contents/AttendanceForm'
+import PhotoGallery from './components/section-contents/PhotoGallery'
+import ModalManager from './components/component-managers/ModalManager'
+import RSVP from './components/section-contents/RSVP'
+import LoadingOverlay from './components/prefabs/ui/LoadingOverlay'
 import { useDataContext } from './hooks/useDataContext'
+import DressCode from './components/section-contents/DressCode'
 
 function App() {
-  const { guestData } = useDataContext();
+  const { loading, guestData } = useDataContext();
 
   return (
     <>
-      <MainHeader></MainHeader>
+      <MainHeader/>
 
-      <Navbar></Navbar>
+      <Navbar/>
 
       <main>
         <Section headingText={'Invitación'} id={'invitation'}>
@@ -27,49 +31,28 @@ function App() {
         </Section>
 
         <Section headingText={'Itinerario'} id={'itinerary'}>
-          <Itinerary></Itinerary>
+          <Itinerary />
+        </Section>
+
+        <Section headingText={'Dress Code'} id={'dressCode'}>
+          <DressCode />
+        </Section>
+
+        <Section>
+          <PhotoGallery />
         </Section>
 
         <Section headingText={
-            guestData.status === 'confirmed' ? '¡Confirmaste tu asistencia!'
-            : guestData.status === 'declined' ? 'Nos indicaste que no asistirás'
-            : 'Confirmar Asistencia'
+          guestData.status === 'confirmed' ? '¡Confirmaste tu asistencia!'
+          : guestData.status === 'declined' ? 'Nos indicaste que no asistirás'
+          : 'Confirmar Asistencia'
           } id={'attendance'} >
-          
-          {guestData.status === 'pending' &&
-            <div>
-              <p className='text-center mb-6'>Tu presencia es muy significativa para nosotros. Si puedes acompañarnos, por favor, <span className='font-semibold'>confirma tu asistencia antes del 30 de septiembre</span>.</p>
-              <AttendanceForm />
-            </div>
-          }
-
-          {guestData.status === 'confirmed' &&
-            <>
-              <div className='transparent-panel mb-6 text-center'>
-                <h4>¡Qué alegría saber que nos acompañarás!</h4>
-                <p className='my-8'>Confirmaste tu asistencia para <span className='mark-primary font-semibold'>{guestData.confirmedPasses} {guestData.confirmedPasses > 1 ? 'personas' : 'persona'}</span></p>
-                <p>Estamos muy emocionados de compartir este momento contigo. <span className='font-semibold'>¡Nos vemos pronto!</span></p>
-              </div>
-            </>
-          }
-
-          {guestData.status === 'declined' &&
-            <>
-              <div className='transparent-panel mb-6 text-center'>
-                <h4 className='mb-4'>¡Gracias por avisarnos!</h4>
-                <p>Sentiremos tu ausencia, pero entendemos que no siempre es posible asistir.</p>
-              </div>
-            </>
-          }
-
-          {guestData.status !== 'pending' &&
-            <div className='transparent-panel text-center'>
-              <p className='text-sm'>Si cambias de opinion, puedes <button className='link-primary' onClick={null}>modificar tu respuesta</button> hasta el 30 de septiembre. </p>
-            </div>
-          }
+            <RSVP />
+            {loading && <LoadingOverlay loadingMessage={'Enviando respuesta'}/>}
         </Section>
       </main>
       
+      <ModalManager/>
     </>
   )
 }

@@ -7,7 +7,16 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url(/fonts/Montserrat-VariableFont_wght.ttf);
+  src: url(/fonts/Montserrat-VariableFont_wght.ttf) format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url(/fonts/Montserrat-Italic-VariableFont_wght.ttf) format('truetype');
+  font-style: italic;
+  font-display: swap;
 }
 
 @theme {
@@ -21,7 +30,7 @@
 }
 
 body {
-    background-image: url('/img/repeating-bg@0.5x-80.jpg');
+    background-image: url('/img/ornaments/repeating-bg@0.5x-80.jpg');
     background-size: 30rem;
     background-attachment: fixed;
     font-family: "Montserrat", sans-serif;
@@ -69,6 +78,11 @@ input[type='radio'] {
 .traslucid-panel {
   @apply bg-white/0 backdrop-blur-lg backdrop-brightness-115 shadow-lg;
 }
+
+.traslucid-panel-dark {
+  @apply bg-white/0 backdrop-blur-lg shadow-lg;
+}
+
 
 .transparent-panel {
   @apply bg-white/40 p-4 rounded-[1.5rem];
