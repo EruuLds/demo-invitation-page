@@ -38,7 +38,7 @@ function App() {
           <DressCode />
         </Section>
 
-        <Section>
+        <Section id={'photoGallery'}>
           <PhotoGallery />
         </Section>
 

@@ -9,7 +9,7 @@ export default function Navbar() {
                 <a href="#itinerary">Itinerario</a>
             </li>
             <li>
-                <a>Dress Code</a>
+                <a href="#dressCode">Dress Code</a>
             </li>
             <li>
                 <a href="#attendance">Confirmar Asistencia</a>
