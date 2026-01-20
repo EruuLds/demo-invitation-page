@@ -8,7 +8,7 @@ export function useHandleModals() {
       setOpenModals(prev => [...prev, id]);
       setTimeout(() => {
         setVisibleModals(prev => [...prev, id]);
-      }, 10);
+      }, 5);
     } else if (action === 'close') {
       setVisibleModals(prev => prev.filter(item => item !== id));
       setTimeout(() => {

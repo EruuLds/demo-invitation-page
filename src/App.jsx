@@ -13,12 +13,13 @@ import Gifts from './components/section-contents/Gifts'
 import { useDataContext } from './hooks/useDataContext'
 import DressCode from './components/section-contents/DressCode'
 import Footer from './components/prefabs/ui/Footer'
+import Curtain from './components/prefabs/ornamental/Curtain'
 
 function App() {
-  const { loading, guestData } = useDataContext();
+  const { loading, invitationIsOpen, guestData } = useDataContext();
 
   return (
-    <>
+    <div className={!invitationIsOpen && 'h-screen overflow-y-hidden'}>
       <MainHeader/>
 
       <Navbar/>
@@ -59,9 +60,11 @@ function App() {
       </main>
 
       <Footer />
+      
+      <Curtain />
 
       <ModalManager/>
-    </>
+    </div>
   )
 }
 

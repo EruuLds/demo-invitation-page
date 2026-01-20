@@ -7,6 +7,7 @@ export const DataContext = createContext();
 export function DataContextProvider({ children }) {
   const eventData = {
     eventId: "demo2026",
+    eventName: "Boda de Ale & Luis",
     eventDate: new Date('October 17, 2026 15:30:00').getTime(),
     confirmationDeadline: new Date('September 30, 2026 15:30:00').getTime(),
     bankData: {
@@ -18,11 +19,29 @@ export function DataContextProvider({ children }) {
   }
 
   const invitationId = new URLSearchParams(window.location.search).get('id');
+  const [invitationIsOpen, setInvitationIsOpen] = useState(false);
+  const [playMusic, setPlayMusic] = useState(false);
 
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const [assetsLoaded, setAssetsLoaded] = useState(false);
+  const initialLoading = !(dataLoaded && assetsLoaded);
+  
+  
   const [guestData, setGuestData] = useState({});
-  const [initialLoading, setInitialLoading] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const onLoad = () => setAssetsLoaded(true);
+
+    if (document.readyState === "complete") {
+      setAssetsLoaded(true);
+    } else {
+      window.addEventListener("load", onLoad);
+    }
+
+    return () => window.removeEventListener("load", onLoad);
+  }, []);
 
   useEffect(() => {
     const guestRef = ref(database, `events/${eventData.eventId}/guests/${invitationId}`);
@@ -35,11 +54,11 @@ export function DataContextProvider({ children }) {
         } else {
           setGuestData(null);
         }
-        setInitialLoading(false);
+        setDataLoaded(true);
       },
       err => {
         setError(err.message);
-        setInitialLoading(false);
+        setDataLoaded(true);
       }
     );
 
@@ -63,6 +82,10 @@ export function DataContextProvider({ children }) {
     <DataContext.Provider value={{
       eventData,
       invitationId,
+      invitationIsOpen,
+      setInvitationIsOpen,
+      playMusic,
+      setPlayMusic,
       guestData,
       initialLoading,
       loading,

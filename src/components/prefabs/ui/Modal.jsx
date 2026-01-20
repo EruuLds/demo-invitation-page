@@ -7,7 +7,7 @@ import { useDataContext } from "../../../hooks/useDataContext";
 import { useHandleModals } from "../../../hooks/useHandleModals";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
-export default function Modal({ id, headingText, children, onClose }) {
+export default function Modal({ id, headingText, children, onClose, closeButton, closeClickingOutside }) {
     const { visibleModals } = useModalContext();
     const { loading } = useDataContext();
     const isVisible = visibleModals.some((modal) => modal === id);
@@ -25,7 +25,7 @@ export default function Modal({ id, headingText, children, onClose }) {
         <div
             id="overlay"
             className={`
-        z-[900] 
+        z-[500] 
         fixed
         inset-0 
         w-full 
@@ -33,8 +33,8 @@ export default function Modal({ id, headingText, children, onClose }) {
         transition-all 
         duration-500 
         ${isMobile && "responsive-container"}
-        ${isVisible ? "backdrop-blur-lg bg-black/25" : "backdrop-blur-[0] bg-black/0"}`}
-            onClick={handleClose}
+        ${isVisible ? "backdrop-blur-lg bg-black/15" : "backdrop-blur-[0] bg-black/0"}`}
+            onClick={closeClickingOutside && handleClose}
         >
             <div className="relative flex justify-center w-full h-full">
                 <div
@@ -59,19 +59,19 @@ export default function Modal({ id, headingText, children, onClose }) {
                     onClick={(e) => e.stopPropagation()}
                 >
                     <div className="relative p-4">
-                        <div className="w-full flex justify-between items-center mb-4">
-                            <h4 className="me-4">{headingText}</h4>
-                            <div className="aspect-square">
+                        <div className={`w-full flex items-center gap-4 mb-4 ${closeButton ? 'justify-between' : 'justify-center'}`}>
+                            {headingText && <h4>{headingText}</h4>}
+                            {closeButton && <div className="aspect-square self-end">
                                 <Button color={"transparent"} onClick={handleClose} small>
                                     <FontAwesomeIcon icon={faXmark} />
                                 </Button>
-                            </div>
+                            </div>}
                         </div>
                         {children}
                     </div>
                 </div>
             </div>
         </div>,
-        document.getElementById("modals"),
+        document.getElementById("modals")
     );
 }
