@@ -2,8 +2,8 @@ import { useDataContext } from "../../../hooks/useDataContext";
 import { useCountdown } from "../../../hooks/useCountdown";
 
 export default function CountdownTimer() {
-  const { eventDate } = useDataContext();
-  const { days, hours, minutes, seconds } = useCountdown(eventDate);
+  const { eventData } = useDataContext();
+  const { days, hours, minutes, seconds } = useCountdown(eventData.eventDate);
   
   return (
     <div className="grid grid-cols-4 gap-4 p-4 bg-white font-semibold rounded-2xl">

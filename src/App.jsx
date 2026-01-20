@@ -9,8 +9,10 @@ import PhotoGallery from './components/section-contents/PhotoGallery'
 import ModalManager from './components/component-managers/ModalManager'
 import RSVP from './components/section-contents/RSVP'
 import LoadingOverlay from './components/prefabs/ui/LoadingOverlay'
+import Gifts from './components/section-contents/Gifts'
 import { useDataContext } from './hooks/useDataContext'
 import DressCode from './components/section-contents/DressCode'
+import Footer from './components/prefabs/ui/Footer'
 
 function App() {
   const { loading, guestData } = useDataContext();
@@ -42,6 +44,10 @@ function App() {
           <PhotoGallery />
         </Section>
 
+        <Section headingText={'Regalos'}>
+          <Gifts />
+        </Section>
+
         <Section headingText={
           guestData.status === 'confirmed' ? '¡Confirmaste tu asistencia!'
           : guestData.status === 'declined' ? 'Nos indicaste que no asistirás'
@@ -51,7 +57,9 @@ function App() {
             {loading && <LoadingOverlay loadingMessage={'Enviando respuesta'}/>}
         </Section>
       </main>
-      
+
+      <Footer />
+
       <ModalManager/>
     </>
   )

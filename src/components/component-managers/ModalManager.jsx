@@ -17,9 +17,9 @@ export default function ModalManager() {
         <>
             {(openModals.some((modal) => modal === 'confirmSendResponseModal') && !initialLoading) &&
                 <Modal id={'confirmSendResponseModal'} headingText={'Enviar Respuesta'}>
-                    <p className="mb-4"> Se enviará tu respuesta a los anfitriones.</p>
+                    <p className="mb-4 text-center"> Se enviará tu respuesta a los anfitriones.</p>
                     <div className="flex justify-center gap-4">
-                        <Button color={'secondary'} onClick={() => handleModals('close', 'confirmSendResponseModal')} >
+                        <Button color={'transparent'} onClick={() => handleModals('close', 'confirmSendResponseModal')} >
                             <span>Volver</span>
                         </Button>
                         <Button color={'primary'} targetForm={'attendanceForm'}>
@@ -38,7 +38,7 @@ export default function ModalManager() {
                     </div>
                     
                     <div className="flex justify-center gap-4 mt-4">
-                        <Button color={'secondary'} onClick={() => handleModals('close', 'modifyResponseModal')} >
+                        <Button color={'transparent'} onClick={() => handleModals('close', 'modifyResponseModal')} >
                             <span>Volver</span>
                         </Button>
                         <Button color={'primary'} targetForm={'attendanceForm'}>

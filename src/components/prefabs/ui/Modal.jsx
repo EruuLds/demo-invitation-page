@@ -62,7 +62,7 @@ export default function Modal({ id, headingText, children, onClose }) {
                         <div className="w-full flex justify-between items-center mb-4">
                             <h4 className="me-4">{headingText}</h4>
                             <div className="aspect-square">
-                                <Button color={"secondary"} onClick={handleClose} small>
+                                <Button color={"transparent"} onClick={handleClose} small>
                                     <FontAwesomeIcon icon={faXmark} />
                                 </Button>
                             </div>

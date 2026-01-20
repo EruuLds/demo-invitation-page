@@ -1,17 +1,19 @@
 import { useDataContext } from "../../../hooks/useDataContext";
 
-export default function Button({ children, color, small, targetForm, onClick, disabled }) {
+export default function Button({ children, color, small, targetForm, onClick, disabled, grow }) {
   const { loading, initialLoading } = useDataContext()
   const colorMap = {
     primary: "button-primary",
-    secondary: "button-secondary"
+    secondary: "button-secondary",
+    transparent: "button-transparent"
   };
 
   return (
     <button
-      className={`rounded-[0.5rem] cursor-pointer font-medium hover:scale-101 hover:backdrop-brightness-75 hover:shadow-md 
+      className={`cursor-pointer font-medium hover:scale-101 hover:backdrop-brightness-85 hover:shadow-md 
+        ${grow ? 'w-full' : 'w-fit'}
         ${color && (disabled ? 'button-disabled' : colorMap[color])}
-        ${small ? 'text-xs px-2 py-1 aspect-square rounded-full' : 'px-3 py-2'}`
+        ${small ? 'text-xs px-2 py-1 aspect-square rounded-full' : 'px-3 py-2 rounded-[0.75rem]'}`
       }
       type={targetForm ? 'submit' : 'button'}
       form={targetForm ? targetForm : null}

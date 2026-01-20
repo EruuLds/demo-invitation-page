@@ -90,7 +90,11 @@ input[type='radio'] {
 
 .mark-primary {
     background-color: var(--color-primary);
-    @apply text-white px-2 py-1 inline-block rounded-[0.5rem];
+    @apply text-white px-2 py-1 inline-block rounded-[0.75rem];
+}
+
+.mark-secondary {
+  @apply bg-white px-2 py-1 inline-block rounded-[0.75rem];
 }
 
 .mark-disabled {
@@ -118,6 +122,10 @@ input[type='radio'] {
 
 .button-secondary {
   @apply bg-white;
+}
+
+.button-transparent {
+  @apply bg-white/60;
 }
 
 .button-disabled {

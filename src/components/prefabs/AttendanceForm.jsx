@@ -5,12 +5,13 @@ import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import { useDataContext } from '../../hooks/useDataContext';
 import { useHandleModals } from '../../hooks/useHandleModals';
+import Dropdown from './ui/Dropdown';
 
 export default function AttendanceForm() {
-  const { guestData, updateGuest, invitationId, loading } = useDataContext();
+  const { guestData, updateGuest, invitationId } = useDataContext();
   const handleModals = useHandleModals()
-  const defaultData = { status: guestData.status, confirmedPasses: guestData.passes };
   
+  const defaultData = { status: guestData.status, confirmedPasses: guestData.passes };
   const { register, handleSubmit, watch, setValue, reset } = useForm({defaultValues: {...defaultData}});
   const confirmedPassesValue = watch('confirmedPasses');
   const statusValue = watch('status');
@@ -52,12 +53,9 @@ export default function AttendanceForm() {
       >
         <div className="">
           <div>
-            <label
-              className="block mb-1 text-center font-semibold"
-              htmlFor="confirmation"
-            >
+            <p className="mb-1 text-center font-semibold" htmlFor="confirmation">
               ¿Asistirás?
-            </label>
+            </p>
             <div className="flex gap-4 justify-center">
               <div className="flex items-center gap-2">
                 <p>Sí</p>
@@ -78,29 +76,29 @@ export default function AttendanceForm() {
             </div>
           </div>
 
-          <div className={`transition-all duration-300 overflow-y-hidden ${(statusValue === 'confirmed' && guestData.passes > 1) ? 'max-h-21 opacity-100' : 'max-h-0 opacity-0'}`}>
-            <label
-              className="block mb-1 text-center font-semibold mt-4"
-              htmlFor="confirmedPasses"
-            >
-              ¿Cuántos asisten?
-            </label>
-            <div className="flex gap-2 items-center justify-center">
-              <Button color={"primary"} onClick={decrementPasses} small >
-                <FontAwesomeIcon icon={faMinus} />
-              </Button>
-              <input
-                className="shrink"
-                type="number"
-                readOnly
-                disabled={statusValue === 'declined'}
-                {...register("confirmedPasses", { valueAsNumber: true })}
-              />
-              <Button color={"primary"} onClick={incrementPasses} small >
-                <FontAwesomeIcon icon={faPlus} />
-              </Button>
+          <Dropdown isOpen={statusValue === 'confirmed'}>
+            <div className='pt-2'>
+              <p className="mb-1 text-center font-semibold" htmlFor="confirmedPasses">
+                ¿Cuántos asisten?
+              </p>
+              <div className="flex gap-2 items-center justify-center">
+                <Button color={"primary"} onClick={decrementPasses} small >
+                  <FontAwesomeIcon icon={faMinus} />
+                </Button>
+                <input
+                  className="shrink"
+                  type="number"
+                  readOnly
+                  disabled={statusValue === 'declined'}
+                  {...register("confirmedPasses", { valueAsNumber: true })}
+                />
+                <Button color={"primary"} onClick={incrementPasses} small >
+                  <FontAwesomeIcon icon={faPlus} />
+                </Button>
+              </div>
             </div>
-          </div>
+            
+          </Dropdown>
         </div>
       </form>
     </>
