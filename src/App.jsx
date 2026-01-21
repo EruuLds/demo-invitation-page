@@ -19,7 +19,7 @@ function App() {
   const { loading, invitationIsOpen, guestData } = useDataContext();
 
   return (
-    <div className={!invitationIsOpen && 'h-screen overflow-y-hidden'}>
+    <div className={!invitationIsOpen ? 'h-screen overflow-y-hidden' : undefined}>
       <MainHeader/>
 
       <Navbar/>
