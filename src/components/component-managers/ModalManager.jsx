@@ -62,6 +62,19 @@ export default function ModalManager() {
                     {loading && <LoadingOverlay loadingMessage={'Reenviando respuesta'}/>}
                 </Modal>
             }
+
+            {(openModals.some((modal) => modal === 'noDataChangesModal') && !initialLoading) &&
+                <Modal id={'initialModal'} headingText={eventData.eventName} >
+                    <p className="mb-4">¡Con mucha ilusión te extendemos esta invitación!</p>
+                    
+                    <div className="flex justify-center">
+                        <Button color={'primary'} grow onClick={() => handleModals('close', 'initialModal', () => setInvitationIsOpen(true))}>
+                            <FontAwesomeIcon icon={faEnvelopeOpen} className="me-2" />
+                            <span>Abrir</span>
+                        </Button>
+                    </div>
+                </Modal>
+            }
         </>
     );
 }

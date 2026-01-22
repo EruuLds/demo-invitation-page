@@ -5,6 +5,7 @@ import { faMoneyBills, faChevronDown, faBuildingColumns } from "@fortawesome/fre
 import { useState } from "react";
 import { useDataContext } from "../../hooks/useDataContext";
 import Dropdown from "../prefabs/ui/Dropdown";
+import CopyTextOnClick from "../prefabs/functional/CopyTextOnClick";
 
 export default function Gifts() {
     const [showBankAccountData, setShowBankAccountData] = useState(false);
@@ -52,15 +53,15 @@ export default function Gifts() {
                         </div>
                         <div className="flex wrap items-center mb-2">
                             <p className="me-1 font-semibold">CLABE:</p>
-                            <span className="mark-secondary text-sm">{eventData.bankData.CLABE}</span>
+                            <span className="mark-secondary text-sm"><CopyTextOnClick>{eventData.bankData.CLABE}</CopyTextOnClick></span>
                         </div>
                         <div className="flex wrap items-center mb-2">
                             <p className="me-1 font-semibold">No. de Cuenta:</p>
-                            <span className="mark-secondary text-sm">{eventData.bankData.account}</span>
+                            <span className="mark-secondary text-sm"><CopyTextOnClick>{eventData.bankData.account}</CopyTextOnClick></span>
                         </div>
                         <div className="flex wrap items-center mb-2">
                             <p className="me-1 font-semibold">Titular:</p>
-                            <span className="mark-secondary text-sm uppercase">{eventData.bankData.accountHolder}</span>
+                            <span className="mark-secondary text-sm"><CopyTextOnClick>{eventData.bankData.accountHolder}</CopyTextOnClick></span>
                         </div>
                     </div>
                 </Dropdown>
