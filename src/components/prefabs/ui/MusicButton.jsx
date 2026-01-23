@@ -25,7 +25,7 @@ export default function MusicButton() {
 
     return (
         <>  
-            <span className='fixed right-0 top-1/2 aspect-square'>
+            <span className='fixed -translate-y-1/2 right-0 top-1/2 aspect-square'>
                 <Button color={'primary'} onClick={handleToggleMusic} small >
                     <FontAwesomeIcon icon={musicIsPlaying ? faVolumeHigh : faVolumeXmark} fade={musicIsPlaying} style={{ animationDuration: '2s' }} size={'2xl'} />
                 </Button>
