@@ -20,7 +20,7 @@ export function DataContextProvider({ children }) {
 
   const invitationId = new URLSearchParams(window.location.search).get('id');
   const [invitationIsOpen, setInvitationIsOpen] = useState(false);
-  const [playMusic, setPlayMusic] = useState(false);
+  const [musicIsPlaying, setMusicIsPlaying] = useState(false);
 
   const [dataLoaded, setDataLoaded] = useState(false);
   const [assetsLoaded, setAssetsLoaded] = useState(false);
@@ -84,8 +84,8 @@ export function DataContextProvider({ children }) {
       invitationId,
       invitationIsOpen,
       setInvitationIsOpen,
-      playMusic,
-      setPlayMusic,
+      musicIsPlaying,
+      setMusicIsPlaying,
       guestData,
       initialLoading,
       loading,

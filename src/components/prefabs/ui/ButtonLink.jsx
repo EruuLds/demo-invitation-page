@@ -1,4 +1,4 @@
-export default function ButtonLink({ children, color, small, onClick, href, download, grow }) {
+export default function ButtonLink({ children, color, small, onClick, href, download, growX, growY }) {
     const colorMap = {
         primary: "button-primary",
         secondary: "button-secondary",
@@ -6,7 +6,8 @@ export default function ButtonLink({ children, color, small, onClick, href, down
     return (
         <a
             className={`cursor-pointer inline-block font-medium hover:scale-101 hover:backdrop-brightness-70 hover:shadow-md 
-            ${grow ? 'w-full' : 'w-fit'}
+            ${growX ? 'w-full' : 'w-fit'} 
+            ${growY ? 'h-full' : 'h-fit'}
             ${color && colorMap[color]}
             ${small ? 'text-xs px-2 py-1 aspect-square rounded-full' : 'px-3 py-2 rounded-[0.75rem]'}`
 

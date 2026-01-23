@@ -9,7 +9,7 @@ import { useHandleModals } from "../../hooks/useHandleModals";
 import AttendanceForm from "../prefabs/AttendanceForm";
 
 export default function ModalManager() {
-    const { loading, initialLoading, setInvitationIsOpen, eventData } = useDataContext();
+    const { loading, initialLoading, setInvitationIsOpen, eventData, setMusicIsPlaying } = useDataContext();
     const { openModals } = useModalContext();
     const handleModals = useHandleModals();
 
@@ -20,7 +20,13 @@ export default function ModalManager() {
                     <p className="mb-4">¡Con mucha ilusión te extendemos esta invitación!</p>
                     
                     <div className="flex justify-center">
-                        <Button color={'primary'} grow onClick={() => handleModals('close', 'initialModal', () => setInvitationIsOpen(true))}>
+                        <Button color={'primary'} grow onClick={() => handleModals(
+                            'close', 
+                            'initialModal', 
+                            () => {
+                                setInvitationIsOpen(true)
+                                setMusicIsPlaying(true)
+                        })}>
                             <FontAwesomeIcon icon={faEnvelopeOpen} className="me-2" />
                             <span>Abrir</span>
                         </Button>

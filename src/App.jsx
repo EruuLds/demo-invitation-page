@@ -14,6 +14,7 @@ import { useDataContext } from './hooks/useDataContext'
 import DressCode from './components/section-contents/DressCode'
 import Footer from './components/prefabs/ui/Footer'
 import Curtain from './components/prefabs/ornamental/Curtain'
+import MusicButton from './components/prefabs/ui/MusicButton'
 
 function App() {
   const { loading, invitationIsOpen, guestData } = useDataContext();
@@ -61,6 +62,8 @@ function App() {
 
       <Footer />
       
+      <MusicButton/>
+
       <Curtain />
 
       <ModalManager/>
