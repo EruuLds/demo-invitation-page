@@ -66,7 +66,6 @@ input[type='radio'] {
   @apply size-5 border-none outline-none;
 }
 
-
 .responsive-container {
   @apply px-[1rem] sm:px-[1.5rem] md:px-[1.5rem] lg:px-[3rem] sm:max-w-[1280px] w-full mx-auto;
 }

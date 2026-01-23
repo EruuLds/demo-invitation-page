@@ -46,7 +46,7 @@ function App() {
           <PhotoGallery />
         </Section>
 
-        <Section headingText={'Regalos'}>
+        <Section headingText={'Regalos'} id={'gifts'}>
           <Gifts />
         </Section>
 
