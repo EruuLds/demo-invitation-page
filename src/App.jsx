@@ -20,54 +20,55 @@ function App() {
   const { loading, invitationIsOpen, guestData } = useDataContext();
 
   return (
-    <div className={!invitationIsOpen ? 'h-svh overflow-y-hidden' : undefined}>
-      <MainHeader/>
+    <>
+      <div className={!invitationIsOpen ? 'h-svh overflow-y-hidden' : undefined}>
+        <MainHeader/>
+        <Navbar/>
+        
+        {guestData && <main>
+          <Section headingText={'Invitación'} id={'invitation'}>
+            <Invitation />
+          </Section>
 
-      <Navbar/>
+          <Section headingText={'¿Dónde y Cuándo?'} id={'venueInfo'} >
+            <VenueInfo />
+          </Section>
 
-      <main>
-        <Section headingText={'Invitación'} id={'invitation'}>
-          <Invitation />
-        </Section>
+          <Section headingText={'Itinerario'} id={'itinerary'}>
+            <Itinerary />
+          </Section>
 
-        <Section headingText={'¿Dónde y Cuándo?'} id={'venueInfo'} >
-          <VenueInfo />
-        </Section>
+          <Section headingText={'Dress Code'} id={'dressCode'}>
+            <DressCode />
+          </Section>
 
-        <Section headingText={'Itinerario'} id={'itinerary'}>
-          <Itinerary />
-        </Section>
+          <Section id={'photoGallery'}>
+            <PhotoGallery />
+          </Section>
 
-        <Section headingText={'Dress Code'} id={'dressCode'}>
-          <DressCode />
-        </Section>
+          <Section headingText={'Regalos'} id={'gifts'}>
+            <Gifts />
+          </Section>
 
-        <Section id={'photoGallery'}>
-          <PhotoGallery />
-        </Section>
+          <Section headingText={
+            guestData?.status === 'confirmed' ? '¡Confirmaste tu asistencia!'
+            : guestData?.status === 'declined' ? 'Nos indicaste que no asistirás'
+            : 'Confirmar Asistencia'
+            } id={'attendance'} >
+              <RSVP />
+              {loading && <LoadingOverlay loadingMessage={'Enviando respuesta'}/>}
+          </Section>
+        </main>}
 
-        <Section headingText={'Regalos'} id={'gifts'}>
-          <Gifts />
-        </Section>
+        <Footer />
+      </div>
 
-        <Section headingText={
-          guestData.status === 'confirmed' ? '¡Confirmaste tu asistencia!'
-          : guestData.status === 'declined' ? 'Nos indicaste que no asistirás'
-          : 'Confirmar Asistencia'
-          } id={'attendance'} >
-            <RSVP />
-            {loading && <LoadingOverlay loadingMessage={'Enviando respuesta'}/>}
-        </Section>
-      </main>
-
-      <Footer />
-      
       <MusicButton/>
-
+          
       <Curtain />
-
+          
       <ModalManager/>
-    </div>
+    </>
   )
 }
 

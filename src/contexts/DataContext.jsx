@@ -90,6 +90,7 @@ export function DataContextProvider({ children }) {
       initialLoading,
       loading,
       error,
+      dataLoaded,
       updateGuest
     }}>
       {children}

@@ -11,7 +11,7 @@ export default function RSVP() {
     
     return (
       <>
-        {guestData.status === "pending" && (
+        {guestData?.status === "pending" && (
             <div>
                 <p className="text-center mb-6">
                   Tu presencia es muy significativa para nosotros. Si puedes
@@ -33,7 +33,7 @@ export default function RSVP() {
             </div>
         )}
 
-        {guestData.status === "confirmed" && (
+        {guestData?.status === "confirmed" && (
           <>
             <div className="transparent-panel mb-6 text-center">
               <h4>¡Qué alegría saber que nos acompañarás!</h4>
@@ -52,7 +52,7 @@ export default function RSVP() {
           </>
         )}
 
-        {guestData.status === "declined" && (
+        {guestData?.status === "declined" && (
           <>
             <div className="transparent-panel mb-6 text-center">
               <h4 className="mb-4">¡Gracias por avisarnos!</h4>
@@ -64,7 +64,7 @@ export default function RSVP() {
           </>
         )}
 
-        {guestData.status !== "pending" && (
+        {guestData?.status !== "pending" && (
           <div className="transparent-panel text-center">
             <p className="text-sm">
               Si cambias de opinion, puedes{" "}

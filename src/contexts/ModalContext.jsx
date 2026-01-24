@@ -3,8 +3,8 @@ import { createContext, useState } from "react";
 export const ModalContext = createContext();
 
 export function ModalContextProvider(props) {
-    const [openModals, setOpenModals] = useState(['initialModal']);
-    const [visibleModals, setVisibleModals] = useState(['initialModal']);
+    const [openModals, setOpenModals] = useState([]);
+    const [visibleModals, setVisibleModals] = useState([]);
 
     return (
         <ModalContext.Provider
