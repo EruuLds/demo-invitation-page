@@ -24,7 +24,7 @@ export default function ModalManager() {
             handleModals('open', 'initialModal');
         }
         console.log({dataLoaded, guestData});
-    }, [dataLoaded, guestData]);
+    }, [dataLoaded]);
     
     return (
         <>

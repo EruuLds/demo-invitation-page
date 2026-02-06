@@ -19,7 +19,7 @@ export default function Navbar() {
     return (
         <div className="traslucid-panel mb-8">
             {isMobile &&   
-                <div className="responsive-container cursor-pointer grid grid-cols-[1fr_auto] items-center gap-6 py-6" onClick={() => setShowMenu(!showMenu)} >
+                <button className="responsive-container cursor-pointer grid grid-cols-[1fr_auto] items-center gap-6 py-6" onClick={() => setShowMenu(!showMenu)} >
                     <div className="flex items-center">
                         <h4>Menú</h4>
                     </div>
@@ -35,7 +35,7 @@ export default function Navbar() {
                             className={`absolute top-0 left-0 transition-all duration-300 ${showMenu ? 'opacity-100' : 'opacity-0'}`}
                         />
                     </div>
-                </div>
+                </button>
             }
 
             <Dropdown isOpen={(showMenu || !isMobile)}>
@@ -54,7 +54,6 @@ export default function Navbar() {
                     </li>
                 </ul>
             </Dropdown>
-            
         </div>
-  )
+    )
 }
