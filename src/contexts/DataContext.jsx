@@ -6,10 +6,10 @@ export const DataContext = createContext();
 
 export function DataContextProvider({ children }) {
   const eventData = {
-    eventId: "demo2026",
+    eventId: "EV-DEMO-2026",
     eventName: "Boda de Ale & Luis",
-    eventDate: new Date('October 17, 2026 15:30:00').getTime(),
-    confirmationDeadline: new Date('September 30, 2026 15:30:00').getTime(),
+    eventDate: new Date('2026-10-17T15:30:00.000Z').getTime(),
+    confirmationDeadline: new Date('2026-09-30T15:30:00.000Z').getTime(),
     bankData: {
       bank: "Banorte",
       CLABE: 'XXXXXXXXXXXXXXXXXX',
